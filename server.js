@@ -14,19 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 routes(app);
 
 app.all('/*', function(req, res) {
-    res.send('\
-        <!DOCTYPE html>\
-        <html>\
-            <head>\
-                <title>MEAN ToDo App</title>\
-                <base href="/">\
-            </head>\
-            <body>\
-                <div ui-view></div>\
-                <script src="bundle.js"></script>\
-            </body>\
-        </html>\
-    ');
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(PORT, function() {
